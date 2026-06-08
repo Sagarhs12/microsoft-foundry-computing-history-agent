@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computing History Agent</title>
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>💻</text></svg>">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="background">
+        <div class="container" role="main">
+            <!-- Header -->
+            <header class="header" role="banner">
+                <div class="header-content">
+                    <span class="header-icon" aria-hidden="true">💻</span>
+                    <div class="header-text">
+                        <h1 class="header-title">Computing History Agent</h1>
+                        <p class="header-subtitle">Powered by Microsoft Foundry</p>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Chat Area -->
+            <div class="chat-container" role="region" aria-label="Chat conversation area">
+                <div class="chat-toolbar" role="toolbar" aria-label="Chat controls">
+                    <button id="resetBtn" class="reset-btn" title="Reset conversation and clear chat history"
+                        aria-label="Reset conversation" tabindex="3">
+                        <span aria-hidden="true">💬</span>
+                    </button>
+                </div>
+                <div id="chatMessages" class="chat-messages" role="log" aria-live="polite" aria-atomic="false"
+                    aria-label="Chat messages">
+                    <div class="welcome-message" role="status">
+                        Let's chat about computing history...
+                    </div>
+                </div>
+            </div>
+
+            <!-- Input Area -->
+            <div class="input-container" role="form" aria-label="Message input form">
+                <label for="messageInput" class="sr-only">Type your message</label>
+                <input type="text" id="messageInput" class="message-input" placeholder="Type your message..."
+                    autocomplete="off" aria-label="Message input field" aria-describedby="inputHelp" tabindex="1"
+                    maxlength="10000">
+                <button id="sendBtn" class="send-btn" title="Send message" aria-label="Send message" tabindex="2">
+                    <span aria-hidden="true">➤</span>
+                </button>
+            </div>
+
+            <!-- Footer -->
+            <footer class="footer" role="contentinfo">
+                <span id="inputHelp">AI-generated content can include mistakes</span>
+            </footer>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>
